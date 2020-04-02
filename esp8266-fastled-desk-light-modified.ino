@@ -33,9 +33,9 @@ extern "C" {
 
 
 /*######################## MAIN CONFIG ########################*/
-#define DATA_PIN      5          // D5, GPIO14 On NodeMCU. Change to D4 on Wemos D1 Mini
+#define DATA_PIN      5          // D5, GPIO14 On NodeMCU. Change to D4 on Wemos D1 Mini (Must put the D for D1 Mini...)
 #define LED_TYPE      WS2811     // You might also use a WS2811 or any other strip that is fastled compatible 
-#define COLOR_ORDER   GRB         // Change this if colors are swapped (in my case, red was swapped with green)
+#define COLOR_ORDER   BRG         // Change this if colors are swapped (in my case, red was swapped with green)
 #define MILLI_AMPS    2000        // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
 #define VOLTS         12           // Voltage of the Power Supply
 #define LINE_COUNT    8           // Amount of led strip pieces
