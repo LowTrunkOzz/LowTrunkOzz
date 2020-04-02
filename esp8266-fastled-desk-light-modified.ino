@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#define FASTLED_INTERRUPT_RETRY_COUNT 0
+//#define FASTLED_INTERRUPT_RETRY_COUNT 0 
 #include <FastLED.h>
 FASTLED_USING_NAMESPACE
 extern "C" {
@@ -33,13 +33,13 @@ extern "C" {
 
 
 /*######################## MAIN CONFIG ########################*/
-#define DATA_PIN      D4          // Should be GPIO02 on other boards like the NodeMCU
-#define LED_TYPE      WS2812B     // You might also use a WS2811 or any other strip that is fastled compatible 
+#define DATA_PIN      5          // D5, GPIO14 On NodeMCU. Change to D4 on Wemos D1 Mini
+#define LED_TYPE      WS2811     // You might also use a WS2811 or any other strip that is fastled compatible 
 #define COLOR_ORDER   GRB         // Change this if colors are swapped (in my case, red was swapped with green)
 #define MILLI_AMPS    2000        // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
-#define VOLTS         5           // Voltage of the Power Supply
+#define VOLTS         12           // Voltage of the Power Supply
 #define LINE_COUNT    8           // Amount of led strip pieces
-#define LEDS_PER_LINE 10          // Amount of led pixel per single led strip piece
+#define LEDS_PER_LINE 9          // Amount of led pixel per single led strip piece
 
 
 //#define SOUND_REACTIVE            // Uncomment to enable the Sound reactive mode
@@ -291,13 +291,11 @@ void setup() {
   // if you get here you have connected to the WiFi
   Serial.println("Connected.");
   
- // server.begin();
     //Print the IP Address
     Serial.print("Use this URL to connect: ");
     Serial.print("http://");
     Serial.print(WiFi.localIP());
     Serial.print(":");
-//    Serial.print(serverPort,DEC);
     Serial.println("/");
   
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);         // for WS2812 (Neopixel)
